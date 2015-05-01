@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>65D4C2FD-1C74-4952-906F-1F75818E186F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>yo2bro</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7626A2D5B87516DDC629EE0F4F8E1FF4C18A3F61</key>
+		<string>https://github.com/djmason9/yo2bro.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>yo2bro.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7626A2D5B87516DDC629EE0F4F8E1FF4C18A3F61</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/djmason9/yo2bro.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7626A2D5B87516DDC629EE0F4F8E1FF4C18A3F61</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7626A2D5B87516DDC629EE0F4F8E1FF4C18A3F61</string>
+			<key>IDESourceControlWCCName</key>
+			<string>yo2bro</string>
+		</dict>
+	</array>
+</dict>
+</plist>

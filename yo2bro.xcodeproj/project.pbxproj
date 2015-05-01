@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BC0AC85D1AF2FD2F002D859E /* Yo2BroTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0AC85C1AF2FD2F002D859E /* Yo2BroTableViewController.m */; };
 		BC0AC85F1AF332B7002D859E /* blank_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0AC85E1AF332B7002D859E /* blank_profile.png */; };
+		BC29E61D1AF4208D000FC1D2 /* scrohands.png in Resources */ = {isa = PBXBuildFile; fileRef = BC29E61C1AF4208D000FC1D2 /* scrohands.png */; };
 		BC8FC77D1AF2C5130008B27F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FC77C1AF2C5130008B27F /* main.m */; };
 		BC8FC7801AF2C5130008B27F /* Yo2BroAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FC77F1AF2C5130008B27F /* Yo2BroAppDelegate.m */; };
 		BC8FC7831AF2C5130008B27F /* Yo2BroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FC7821AF2C5130008B27F /* Yo2BroViewController.m */; };
@@ -57,6 +58,7 @@
 		BC0AC85B1AF2FD2F002D859E /* Yo2BroTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yo2BroTableViewController.h; sourceTree = "<group>"; };
 		BC0AC85C1AF2FD2F002D859E /* Yo2BroTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Yo2BroTableViewController.m; sourceTree = "<group>"; };
 		BC0AC85E1AF332B7002D859E /* blank_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_profile.png; sourceTree = "<group>"; };
+		BC29E61C1AF4208D000FC1D2 /* scrohands.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scrohands.png; sourceTree = "<group>"; };
 		BC8FC7771AF2C5130008B27F /* yo2bro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yo2bro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8FC77B1AF2C5130008B27F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC8FC77C1AF2C5130008B27F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 		BCCADE231AF2C56B00B3AC5B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				BC29E61C1AF4208D000FC1D2 /* scrohands.png */,
 				BC0AC85E1AF332B7002D859E /* blank_profile.png */,
 				BCCADE241AF2C56B00B3AC5B /* bottom_handImage.png */,
 				BCCADE251AF2C56B00B3AC5B /* top_handImage.png */,
@@ -348,6 +351,7 @@
 				BC0AC85F1AF332B7002D859E /* blank_profile.png in Resources */,
 				BC8FC7861AF2C5130008B27F /* Main.storyboard in Resources */,
 				BCCADE301AF2C56B00B3AC5B /* bottom_handImage.png in Resources */,
+				BC29E61D1AF4208D000FC1D2 /* scrohands.png in Resources */,
 				BC8FC78B1AF2C5130008B27F /* LaunchScreen.xib in Resources */,
 				BC8FC7881AF2C5130008B27F /* Images.xcassets in Resources */,
 				BCCADE311AF2C56B00B3AC5B /* top_handImage.png in Resources */,

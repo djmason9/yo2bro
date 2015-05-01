@@ -152,6 +152,9 @@
                                 <state key="normal" title="Send Message">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendScro:" destination="Xwo-vf-bbP" eventType="touchUpInside" id="g4D-D9-XfW"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwv-gq-n2T">
                                 <rect key="frame" x="0.0" y="227" width="600" height="21"/>
@@ -170,9 +173,19 @@
                                     <outlet property="delegate" destination="Xwo-vf-bbP" id="Vmw-0R-nKI"/>
                                 </connections>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgC-aw-Aph">
+                                <rect key="frame" x="176" y="250" width="249" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="249" id="JVn-t9-5uG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="hgC-aw-Aph" secondAttribute="centerX" constant="-0.5" id="3fA-fd-AeT"/>
                             <constraint firstAttribute="centerX" secondItem="zmh-cJ-gIK" secondAttribute="centerX" constant="-0.5" id="CMo-rf-arQ"/>
                             <constraint firstAttribute="centerY" secondItem="mwv-gq-n2T" secondAttribute="centerY" constant="62" id="HSd-0x-59g"/>
                             <constraint firstAttribute="centerY" secondItem="vPQ-cM-QOa" secondAttribute="centerY" constant="166" id="HVj-Kg-CWj"/>
@@ -181,11 +194,13 @@
                             <constraint firstAttribute="centerX" secondItem="CYo-EA-tVf" secondAttribute="centerX" constant="-0.5" id="g2X-oA-2bq"/>
                             <constraint firstAttribute="centerY" secondItem="zmh-cJ-gIK" secondAttribute="centerY" constant="-31" id="lZf-dx-aG3"/>
                             <constraint firstAttribute="centerX" secondItem="vPQ-cM-QOa" secondAttribute="centerX" id="nfH-dz-fX9"/>
+                            <constraint firstAttribute="centerY" secondItem="hgC-aw-Aph" secondAttribute="centerY" constant="39.5" id="txP-TS-ElI"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="profileEmailPicker" destination="zmh-cJ-gIK" id="SEU-j1-LQ9"/>
                         <outlet property="profilePic" destination="vPQ-cM-QOa" id="o8w-Q8-SHc"/>
+                        <outlet property="profileUserEmail" destination="hgC-aw-Aph" id="L0Y-nk-DVC"/>
                         <outlet property="profileUserName" destination="mwv-gq-n2T" id="Vmj-qq-4Hv"/>
                     </connections>
                 </viewController>

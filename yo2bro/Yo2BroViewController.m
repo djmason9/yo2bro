@@ -15,7 +15,7 @@
 
 @interface Yo2BroViewController ()
 {
-    BOOL isContactABro;
+
 }
 @property (strong, nonatomic) NSMutableArray *contactInfoArray;
 @property (nonatomic,strong) IBOutlet UIImageView *profilePic;
@@ -30,7 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    isContactABro = NO;
+
     
     _profilePic.layer.cornerRadius = 75;
     _profilePic.layer.masksToBounds = YES;
@@ -50,8 +50,9 @@
 
 - (IBAction)sendScro:(id)sender {
     
+    int row = (int)[_profileEmailPicker selectedRowInComponent:0];
     //
-    if(_choosenEmail && isContactABro){
+    if(_choosenEmail && [_contactInfoArray[row][CONTATCT_DETAIL_ISUSER] integerValue]){
         [PFUser logInWithUsernameInBackground:_choosenEmail password:@"password"
                                         block:^(PFUser *user, NSError *error) {
             if (user) {
@@ -218,7 +219,6 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     _choosenEmail = _contactInfoArray[row][CONTATCT_DETAIL_EMAIL];
-    isContactABro = [_contactInfoArray[row][CONTATCT_DETAIL_ISUSER] integerValue];
     
     NSLog(@"Picked: %@", _choosenEmail);
 }
