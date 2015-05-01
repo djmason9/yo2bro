@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <scenes>
+        <!--Yo2 Bro Login View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="Yo2BroLoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CzL-la-FPz" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="171" y="386" width="258" height="45"/>
+                                <color key="backgroundColor" red="0.2156862745" green="0.26274509800000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="8xh-ce-La3"/>
+                                    <constraint firstAttribute="width" constant="258" id="tS1-5q-dL7"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="Muq-pu-33q"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXa-mZ-RUO">
+                                <rect key="frame" x="250" y="446" width="101" height="30"/>
+                                <state key="normal" title="Take Me Back!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takeMeBack:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LhX-gq-MNs"/>
+                                </connections>
+                            </button>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JzL-Jo-yIU" customClass="Yo2BroProfilePictureButton">
+                                <rect key="frame" x="225" y="111" width="150" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="I8V-LT-iL3"/>
+                                    <constraint firstAttribute="width" constant="150" id="z2l-Xa-lio"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="CzL-la-FPz" secondAttribute="centerX" id="2uP-Lh-cNZ"/>
+                            <constraint firstAttribute="centerX" secondItem="JzL-Jo-yIU" secondAttribute="centerX" id="LMr-AN-wkW"/>
+                            <constraint firstAttribute="centerX" secondItem="rXa-mZ-RUO" secondAttribute="centerX" constant="-0.5" id="LwP-AE-8HI"/>
+                            <constraint firstAttribute="centerY" secondItem="rXa-mZ-RUO" secondAttribute="centerY" constant="-161" id="RPt-DY-Llq"/>
+                            <constraint firstAttribute="centerY" secondItem="CzL-la-FPz" secondAttribute="centerY" constant="-108.5" id="eJX-Cq-4Du"/>
+                            <constraint firstAttribute="centerY" secondItem="JzL-Jo-yIU" secondAttribute="centerY" constant="114" id="iU2-iu-xLq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="CzL-la-FPz" id="xbr-NP-EU0"/>
+                        <outlet property="profilePictureButton" destination="JzL-Jo-yIU" id="k08-1I-YX2"/>
+                        <outlet property="takeMeBack" destination="rXa-mZ-RUO" id="Olh-Mw-5Ch"/>
+                        <segue destination="ZjE-ub-Eym" kind="presentation" identifier="showMain" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="7Yn-m9-b0Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-201" y="442"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zOV-tm-g9B">
+            <objects>
+                <navigationController id="ZjE-ub-Eym" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8LT-mQ-htf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TKI-TN-TTi" kind="relationship" relationship="rootViewController" id="7sc-oo-csD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="seu-va-IE6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="487" y="442"/>
+        </scene>
+        <!--Yo2 Bro Table View Controller-->
+        <scene sceneID="E6U-5F-gU3">
+            <objects>
+                <tableViewController id="TKI-TN-TTi" customClass="Yo2BroTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ebs-IZ-Pqd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactCell" id="JLu-7P-Uzb">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JLu-7P-Uzb" id="qnK-XA-Hfp">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TKI-TN-TTi" id="p8f-5G-q6u"/>
+                            <outlet property="delegate" destination="TKI-TN-TTi" id="LR4-fR-kr0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="PZy-ub-9Jv">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="szG-ei-k60">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cmL-fl-7Lr">
+                                <rect key="frame" x="16" y="7" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="mkC-Jo-nVW" kind="unwind" unwindAction="showLogin:" id="Wyg-Ao-06V"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <segue destination="Xwo-vf-bbP" kind="show" identifier="showDetails" id="56C-3y-fZl"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dH0-Gp-0H6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mkC-Jo-nVW" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1201" y="442"/>
+        </scene>
+        <!--Yo2 Bro View Controller-->
+        <scene sceneID="IuB-Vm-WDw">
+            <objects>
+                <viewController id="Xwo-vf-bbP" customClass="Yo2BroViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MQq-rB-J0E"/>
+                        <viewControllerLayoutGuide type="bottom" id="bHH-zA-2l7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rVe-3v-czL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blank_profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="vPQ-cM-QOa">
+                                <rect key="frame" x="225" y="59" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="HWu-Gd-KPg"/>
+                                    <constraint firstAttribute="height" constant="150" id="ohc-bo-v0k"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYo-EA-tVf">
+                                <rect key="frame" x="191" y="420" width="219" height="30"/>
+                                <state key="normal" title="Send Message">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwv-gq-n2T">
+                                <rect key="frame" x="0.0" y="227" width="600" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zmh-cJ-gIK">
+                                <rect key="frame" x="176" y="250" width="249" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="FuV-rn-kWE"/>
+                                    <constraint firstAttribute="width" constant="249" id="l49-rT-eMf"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="Xwo-vf-bbP" id="lG6-tU-noR"/>
+                                    <outlet property="delegate" destination="Xwo-vf-bbP" id="Vmw-0R-nKI"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="zmh-cJ-gIK" secondAttribute="centerX" constant="-0.5" id="CMo-rf-arQ"/>
+                            <constraint firstAttribute="centerY" secondItem="mwv-gq-n2T" secondAttribute="centerY" constant="62" id="HSd-0x-59g"/>
+                            <constraint firstAttribute="centerY" secondItem="vPQ-cM-QOa" secondAttribute="centerY" constant="166" id="HVj-Kg-CWj"/>
+                            <constraint firstAttribute="centerY" secondItem="CYo-EA-tVf" secondAttribute="centerY" constant="-135" id="MPe-Sk-1rm"/>
+                            <constraint firstAttribute="centerX" secondItem="mwv-gq-n2T" secondAttribute="centerX" id="OLY-io-E50"/>
+                            <constraint firstAttribute="centerX" secondItem="CYo-EA-tVf" secondAttribute="centerX" constant="-0.5" id="g2X-oA-2bq"/>
+                            <constraint firstAttribute="centerY" secondItem="zmh-cJ-gIK" secondAttribute="centerY" constant="-31" id="lZf-dx-aG3"/>
+                            <constraint firstAttribute="centerX" secondItem="vPQ-cM-QOa" secondAttribute="centerX" id="nfH-dz-fX9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="profileEmailPicker" destination="zmh-cJ-gIK" id="SEU-j1-LQ9"/>
+                        <outlet property="profilePic" destination="vPQ-cM-QOa" id="o8w-Q8-SHc"/>
+                        <outlet property="profileUserName" destination="mwv-gq-n2T" id="Vmj-qq-4Hv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9t5-0z-LgO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1956" y="442"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="blank_profile.png" width="700" height="700"/>
+    </resources>
+</document>
