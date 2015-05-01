@@ -7,7 +7,7 @@
 //
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-
+#import <Parse/Parse.h>
 #import "Yo2BroLoginViewController.h"
 #import "Yo2broSettings.h"
 
@@ -46,7 +46,17 @@
     _profilePictureButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _profilePictureButton.layer.borderWidth  = 2;
 
-   
+//    //gets all the users in the table to compare contacts with.
+//    PFQuery *query = [PFUser query];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//            // The find succeeded. The first 100 objects are available in objects
+//            NSLog(@"%@", objects);
+//        } else {
+//            // Log details of the failure
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//        }
+//    }];   
 }
 
 - (void)viewDidAppear:(BOOL)animated

@@ -144,6 +144,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier =@"contactCell";
+    NSString *displayName;
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -153,8 +154,20 @@
     ABRecordRef person = (__bridge ABRecordRef)[self.allContacts objectAtIndex:indexPath.row];
     NSString *firstName = CFBridgingRelease(ABRecordCopyValue(person, kABPersonFirstNameProperty));
     NSString *lastName = CFBridgingRelease(ABRecordCopyValue(person, kABPersonLastNameProperty));
+    NSString *company = CFBridgingRelease(ABRecordCopyValue(person, kABPersonOrganizationProperty));
     
+    if(firstName && lastName)
+       displayName = [NSString stringWithFormat:@"%@ %@",firstName,lastName];
+    else if(firstName && !lastName){
+        displayName = firstName;
+    }else if(lastName && !firstName){
+        displayName = lastName;
+    }else if(company && !firstName & !lastName){
+        displayName = company;
+    }
+        
     
+
     if(ABPersonHasImageData(person)) {
         NSData *contactImageData = (__bridge NSData*) ABPersonCopyImageDataWithFormat(person, kABPersonImageFormatThumbnail);
         UIImage *img = [[UIImage alloc] initWithData:contactImageData];
@@ -164,7 +177,9 @@
     }
     
     // Configure the cell.
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",firstName,lastName];
+    cell.textLabel.text = displayName;
+    
+//    if(![self getRegisteredEmail:person]){[cell setHidden:YES];}
     
     return cell;
 }
