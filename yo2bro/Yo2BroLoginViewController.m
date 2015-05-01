@@ -43,8 +43,8 @@
     
     _profilePictureButton.layer.cornerRadius = 75;
     _profilePictureButton.layer.masksToBounds = YES;
-    _profilePictureButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    _profilePictureButton.layer.borderWidth  = 2;
+    _profilePictureButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    _profilePictureButton.layer.borderWidth  = 4;
 
 //    //gets all the users in the table to compare contacts with.
 //    PFQuery *query = [PFUser query];
