@@ -19,6 +19,7 @@
 }
 
 @property (strong, nonatomic) IBOutlet UIPickerView *profileEmailPicker;
+@property (strong, nonatomic) IBOutlet UIPickerView *messagePicker;
 
 
 @end

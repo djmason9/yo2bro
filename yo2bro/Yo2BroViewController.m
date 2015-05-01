@@ -13,16 +13,22 @@
 #define CONTATCT_DETAIL_EMAIL @"email"
 #define CONTATCT_DETAIL_ISUSER @"isUser"
 
-@interface Yo2BroViewController ()
-{
+#define PICKER_EMAIL 0
+#define PICKER_MESSAGES 1
 
-}
+@interface Yo2BroViewController ()
+
+
+#pragma mark - message arrays
 @property (strong, nonatomic) NSMutableArray *contactInfoArray;
+@property (strong, nonatomic) NSMutableArray *messageArray;
+#pragma mark -
 @property (nonatomic,strong) IBOutlet UIImageView *profilePic;
 @property (nonatomic,strong) IBOutlet UILabel *profileUserName;
 @property (nonatomic,strong) IBOutlet UILabel *profileUserEmail;
 
-@property (strong, nonatomic) NSString *choosenEmail;
+@property (strong, nonatomic) NSString *selectedEmail;
+@property (strong, nonatomic) NSString *selectedMessage;
 
 @end
 
@@ -31,8 +37,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    NSString *path = [[NSBundle mainBundle] pathForResource: @"messages" ofType:@"plist"];
     
-    _profilePic.layer.cornerRadius = 75;
+    // Build the array from the messages plist
+    _messageArray = [[NSMutableArray alloc] initWithContentsOfFile:path];
+    
+    _profilePic.layer.cornerRadius = 50;
     _profilePic.layer.masksToBounds = YES;
     _profilePic.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _profilePic.layer.borderWidth  = 2;
@@ -48,12 +58,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Actions
 - (IBAction)sendScro:(id)sender {
+    
+    if(!_selectedMessage){
+        _selectedMessage = [_messageArray firstObject];
+    }
     
     int row = (int)[_profileEmailPicker selectedRowInComponent:0];
     //
-    if(_choosenEmail && [_contactInfoArray[row][CONTATCT_DETAIL_ISUSER] integerValue]){
-        [PFUser logInWithUsernameInBackground:_choosenEmail password:@"password"
+    if(_selectedEmail && [_contactInfoArray[row][CONTATCT_DETAIL_ISUSER] integerValue]){
+        [PFUser logInWithUsernameInBackground:_selectedEmail password:@"password"
                                         block:^(PFUser *user, NSError *error) {
             if (user) {
                 PFQuery *pushQuery = [PFInstallation query];
@@ -62,7 +77,7 @@
                 // Send push notification to query
                 PFPush *push = [[PFPush alloc] init];
                 [push setQuery:pushQuery]; // Set our Installation query
-                [push setMessage:@"Scro?"];
+                [push setMessage:_selectedMessage];
                 [((UIButton*)sender) setEnabled:NO];
                 [push sendPushInBackgroundWithBlock:^(BOOL succeeded, NSError * __nullable error) {
                     [((UIButton*)sender) setEnabled:YES];
@@ -89,7 +104,7 @@
     }
     
 }
-
+#pragma mark - Private Functions
 - (void)displayPerson
 {
     _contactInfoArray = [NSMutableArray array];
@@ -128,7 +143,7 @@
                 if(scroUser){
                     NSLog(@"%@ is a user.",email);
                     contactDetails[CONTATCT_DETAIL_ISUSER] = @(YES);
-                    _choosenEmail = email;
+                    _selectedEmail = email;
                 }else{
                     contactDetails[CONTATCT_DETAIL_ISUSER] = @(NO);
                 }
@@ -144,7 +159,7 @@
             }else{
                 [_profileEmailPicker setHidden: YES];
                 [_profileUserEmail setHidden:NO];
-                _choosenEmail = email;
+                _selectedEmail = email;
             }
             
             CFRelease(emailsRef);
@@ -181,46 +196,64 @@
     return 1;
 }
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return _contactInfoArray.count;
+    
+    if(pickerView.tag == PICKER_EMAIL)
+        return _contactInfoArray.count;
+    else
+        return _messageArray.count;
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     
-    if(_contactInfoArray.count-1 >= row)
-        return _contactInfoArray[row][CONTATCT_DETAIL_EMAIL];
-    else
-        return [_contactInfoArray lastObject][CONTATCT_DETAIL_EMAIL];
+    if(pickerView.tag == PICKER_EMAIL){
+        if(_contactInfoArray.count-1 >= row)
+            return _contactInfoArray[row][CONTATCT_DETAIL_EMAIL];
+        else
+            return [_contactInfoArray lastObject][CONTATCT_DETAIL_EMAIL];
+    }else{
+        return _messageArray[row];
+    }
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
-    
     UIView *pickerCustomView = (id)view;
-    UILabel *pickerViewLabel;
+     UILabel *pickerViewLabel;
+    
     UIImageView *pickerImageView;
     
     if (!pickerCustomView) {
         pickerCustomView= [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [pickerView rowSizeForComponent:component].width - 10.0f, [pickerView rowSizeForComponent:component].height)];
         pickerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 35.0f, 35.0f)];
-        pickerViewLabel= [[UILabel alloc] initWithFrame:CGRectMake(37.0f, 0.0f, [pickerView rowSizeForComponent:component].width - 10.0f, [pickerView rowSizeForComponent:component].height)];
+        pickerViewLabel= [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [pickerView rowSizeForComponent:component].width - 10.0f, [pickerView rowSizeForComponent:component].height)];
+        [pickerViewLabel setTextAlignment:NSTextAlignmentCenter];
         // the values for x and y are specific for my example
         [pickerCustomView addSubview:pickerImageView];
         [pickerCustomView addSubview:pickerViewLabel];
     }
     
-    if([_contactInfoArray[row][CONTATCT_DETAIL_ISUSER] integerValue]){
-        pickerImageView.image = [UIImage imageNamed:@"scrohands.png"];
+    if(pickerView.tag == PICKER_EMAIL){
+        if([_contactInfoArray[row][CONTATCT_DETAIL_ISUSER] integerValue]){
+            pickerImageView.image = [UIImage imageNamed:@"scrohands.png"];
+        }
+        
+        pickerViewLabel.text = _contactInfoArray[row][CONTATCT_DETAIL_EMAIL];
+    }else{
+        pickerViewLabel.text = _messageArray[row];
     }
-    
-    pickerViewLabel.text = _contactInfoArray[row][CONTATCT_DETAIL_EMAIL];
     
     return pickerCustomView;
     
 }
 
+
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    _choosenEmail = _contactInfoArray[row][CONTATCT_DETAIL_EMAIL];
+    if(pickerView.tag == PICKER_EMAIL){
+        _selectedEmail = _contactInfoArray[row][CONTATCT_DETAIL_EMAIL];
     
-    NSLog(@"Picked: %@", _choosenEmail);
+        NSLog(@"Picked: %@", _selectedEmail);
+    }else{
+        _selectedMessage = _messageArray[row];
+    }
 }
 
 

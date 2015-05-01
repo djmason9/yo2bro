@@ -141,14 +141,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blank_profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="vPQ-cM-QOa">
-                                <rect key="frame" x="225" y="59" width="150" height="150"/>
+                                <rect key="frame" x="250" y="62" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="HWu-Gd-KPg"/>
-                                    <constraint firstAttribute="height" constant="150" id="ohc-bo-v0k"/>
+                                    <constraint firstAttribute="height" constant="100" id="GWt-Ou-Nty"/>
+                                    <constraint firstAttribute="width" constant="100" id="nb6-ci-eQN"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYo-EA-tVf">
-                                <rect key="frame" x="191" y="420" width="219" height="30"/>
+                                <rect key="frame" x="191" y="502" width="219" height="30"/>
                                 <state key="normal" title="Send Message">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -157,13 +157,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwv-gq-n2T">
-                                <rect key="frame" x="0.0" y="227" width="600" height="21"/>
+                                <rect key="frame" x="0.0" y="175" width="600" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zmh-cJ-gIK">
-                                <rect key="frame" x="176" y="250" width="249" height="162"/>
+                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zmh-cJ-gIK">
+                                <rect key="frame" x="176" y="170" width="249" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="FuV-rn-kWE"/>
                                     <constraint firstAttribute="width" constant="249" id="l49-rT-eMf"/>
@@ -174,7 +174,7 @@
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgC-aw-Aph">
-                                <rect key="frame" x="176" y="250" width="249" height="21"/>
+                                <rect key="frame" x="176" y="204" width="249" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="249" id="JVn-t9-5uG"/>
                                 </constraints>
@@ -182,22 +182,36 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kl6-ao-yh0">
+                                <rect key="frame" x="176" y="324" width="249" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="X7H-1z-asD"/>
+                                    <constraint firstAttribute="width" constant="249" id="fk2-Cs-LMz"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="Xwo-vf-bbP" id="SK2-ZG-OvE"/>
+                                    <outlet property="delegate" destination="Xwo-vf-bbP" id="4F3-Yv-jZ9"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="hgC-aw-Aph" secondAttribute="centerX" constant="-0.5" id="3fA-fd-AeT"/>
+                            <constraint firstAttribute="centerY" secondItem="vPQ-cM-QOa" secondAttribute="centerY" constant="188" id="7XQ-1D-yRt"/>
+                            <constraint firstAttribute="centerY" secondItem="hgC-aw-Aph" secondAttribute="centerY" constant="85.5" id="7sj-f2-cmU"/>
                             <constraint firstAttribute="centerX" secondItem="zmh-cJ-gIK" secondAttribute="centerX" constant="-0.5" id="CMo-rf-arQ"/>
-                            <constraint firstAttribute="centerY" secondItem="mwv-gq-n2T" secondAttribute="centerY" constant="62" id="HSd-0x-59g"/>
-                            <constraint firstAttribute="centerY" secondItem="vPQ-cM-QOa" secondAttribute="centerY" constant="166" id="HVj-Kg-CWj"/>
-                            <constraint firstAttribute="centerY" secondItem="CYo-EA-tVf" secondAttribute="centerY" constant="-135" id="MPe-Sk-1rm"/>
                             <constraint firstAttribute="centerX" secondItem="mwv-gq-n2T" secondAttribute="centerX" id="OLY-io-E50"/>
+                            <constraint firstAttribute="centerX" secondItem="kl6-ao-yh0" secondAttribute="centerX" constant="-0.5" id="URH-Jq-dzV"/>
                             <constraint firstAttribute="centerX" secondItem="CYo-EA-tVf" secondAttribute="centerX" constant="-0.5" id="g2X-oA-2bq"/>
-                            <constraint firstAttribute="centerY" secondItem="zmh-cJ-gIK" secondAttribute="centerY" constant="-31" id="lZf-dx-aG3"/>
-                            <constraint firstAttribute="centerX" secondItem="vPQ-cM-QOa" secondAttribute="centerX" id="nfH-dz-fX9"/>
-                            <constraint firstAttribute="centerY" secondItem="hgC-aw-Aph" secondAttribute="centerY" constant="39.5" id="txP-TS-ElI"/>
+                            <constraint firstAttribute="centerY" secondItem="zmh-cJ-gIK" secondAttribute="centerY" constant="49" id="m9m-jm-KbT"/>
+                            <constraint firstAttribute="centerY" secondItem="mwv-gq-n2T" secondAttribute="centerY" constant="114.5" id="oaH-dq-fUK"/>
+                            <constraint firstAttribute="centerY" secondItem="CYo-EA-tVf" secondAttribute="centerY" constant="-217" id="p2w-c5-Eop"/>
+                            <constraint firstAttribute="centerX" secondItem="vPQ-cM-QOa" secondAttribute="centerX" id="ygo-0f-tNx"/>
+                            <constraint firstAttribute="centerY" secondItem="kl6-ao-yh0" secondAttribute="centerY" constant="-105" id="zTk-jL-x9t"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="messagePicker" destination="kl6-ao-yh0" id="KC9-lc-3A2"/>
                         <outlet property="profileEmailPicker" destination="zmh-cJ-gIK" id="SEU-j1-LQ9"/>
                         <outlet property="profilePic" destination="vPQ-cM-QOa" id="o8w-Q8-SHc"/>
                         <outlet property="profileUserEmail" destination="hgC-aw-Aph" id="L0Y-nk-DVC"/>
