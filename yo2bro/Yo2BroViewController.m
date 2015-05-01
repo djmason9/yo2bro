@@ -96,7 +96,7 @@
         }];
     }else{
         UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Oops!"
-                                                         message:@"No email selected."
+                                                         message:@"This email is not registered."
                                                         delegate:self
                                                cancelButtonTitle:@"Sorry"
                                                otherButtonTitles: nil];
