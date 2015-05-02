@@ -30,6 +30,7 @@
 @property (strong, nonatomic) NSString *selectedEmail;
 @property (strong, nonatomic) NSString *selectedMessage;
 @property (strong, nonatomic) IBOutlet UILabel *yoSentLabel;
+@property (strong, nonatomic) IBOutlet UIButton *inviteSendBro;
 
 @end
 
@@ -61,19 +62,22 @@
 
 #pragma mark - Actions
 - (IBAction)sendScro:(id)sender {
+    UIButton *theButton = (UIButton*)sender;
     
-    [((UIButton*)sender) setUserInteractionEnabled:NO];
+    if(theButton.tag == 0){
+        
+        [theButton setUserInteractionEnabled:NO];
     
-    if(!_selectedMessage){
-        _selectedMessage = [_messageArray firstObject];
-    }
-    
-    int row = (int)[_profileEmailPicker selectedRowInComponent:0];
-    //
-    if(_selectedEmail && [_contactInfoArray[row][CONTATCT_DETAIL_ISUSER] integerValue]){
-        [PFUser logInWithUsernameInBackground:_selectedEmail password:@"password"
-                                        block:^(PFUser *user, NSError *error) {
-            if (user) {
+        if(!_selectedMessage){
+            _selectedMessage = [_messageArray firstObject];
+        }
+        
+        int row = (int)[_profileEmailPicker selectedRowInComponent:0];
+        //
+        if(_selectedEmail && [_contactInfoArray[row][CONTATCT_DETAIL_ISUSER] integerValue]){
+            [PFUser logInWithUsernameInBackground:_selectedEmail password:@"password"
+                                            block:^(PFUser *user, NSError *error) {
+                if (user) {
                 PFQuery *pushQuery = [PFInstallation query];
                 [pushQuery whereKey:@"userId" equalTo:[user objectId]];
                 
@@ -84,13 +88,6 @@
                 [((UIButton*)sender) setEnabled:NO];
                 [push sendPushInBackgroundWithBlock:^(BOOL succeeded, NSError * __nullable error) {
                     [((UIButton*)sender) setEnabled:YES];
-//                    
-//                    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@""
-//                                                                     message:@"Scro Sent!"
-//                                                                    delegate:self
-//                                                           cancelButtonTitle:@"Ok"
-//                                                           otherButtonTitles: nil];
-//                    [alert show];
                     
                     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
                                      animations:^{
@@ -109,10 +106,9 @@
                     
                     
                 }];
-            } else {
-                // The login failed. Check error to see why.
             }
-        }];
+     }];
+    
     }else{
         UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Oops!"
                                                          message:@"This email is not registered."
@@ -121,7 +117,24 @@
                                                otherButtonTitles: nil];
         [alert show];
     }
+    }else{
+        //invite
+        if([MFMailComposeViewController canSendMail]) {
+            MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
+            mailCont.mailComposeDelegate = self;        // Required to invoke mailComposeController when send
+            
+            [mailCont setSubject:@"Try out Yo! 2 Bro"];
+            [mailCont setToRecipients:[NSArray arrayWithObject:_selectedEmail]];
+            [mailCont setMessageBody:@"Hey Bro! install this app so we can send messages to each other! http://www.bitcows.com" isHTML:NO];
+            
+            [self presentViewController:mailCont animated:YES completion:nil];
+        }
+    }
     
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark - Private Functions
 - (void)displayPerson
@@ -141,6 +154,7 @@
     if(emailsRef){
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             NSString *email;
+            int selectedRow=0;
             
             for (int i=0; i<ABMultiValueGetCount(emailsRef); i++) {
                 NSMutableDictionary *contactDetails =[NSMutableDictionary dictionary];
@@ -163,6 +177,8 @@
                     NSLog(@"%@ is a user.",email);
                     contactDetails[CONTATCT_DETAIL_ISUSER] = @(YES);
                     _selectedEmail = email;
+                    selectedRow = i;
+                    [_inviteSendBro setTitle:@"Send Yo!" forState:UIControlStateNormal];
                 }else{
                     contactDetails[CONTATCT_DETAIL_ISUSER] = @(NO);
                 }
@@ -175,6 +191,8 @@
                 [_profileEmailPicker setHidden:NO];
                 [_profileUserEmail setHidden:YES];
                 [_profileEmailPicker reloadComponent:0];
+                [_profileEmailPicker selectRow:selectedRow inComponent:0 animated:YES];
+                
             }else{
                 [_profileEmailPicker setHidden: YES];
                 [_profileUserEmail setHidden:NO];
@@ -268,7 +286,16 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     if(pickerView.tag == PICKER_EMAIL){
         _selectedEmail = _contactInfoArray[row][CONTATCT_DETAIL_EMAIL];
-    
+        
+        if([_contactInfoArray[row][CONTATCT_DETAIL_ISUSER] integerValue]){
+            [_inviteSendBro setTitle:@"Send Yo!" forState:UIControlStateNormal];
+            _inviteSendBro.tag = 0;
+        }
+        else{
+            [_inviteSendBro setTitle:@"Invite Bro" forState:UIControlStateNormal];
+            _inviteSendBro.tag = 1;
+        }
+        
         NSLog(@"Picked: %@", _selectedEmail);
     }else{
         _selectedMessage = _messageArray[row];

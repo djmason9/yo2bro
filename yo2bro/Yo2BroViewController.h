@@ -11,8 +11,10 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <UIKit/UIKit.h>
 #import "Yo2BroProfilePictureButton.h"
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface Yo2BroViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate>
+@interface Yo2BroViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate,MFMailComposeViewControllerDelegate>
 {
     @public
     ABRecordRef person;

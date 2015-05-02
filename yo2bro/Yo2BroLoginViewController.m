@@ -46,6 +46,10 @@
     
     self.loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
     self.profilePictureButton.profileID = @"me";
+    self.loginButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.loginButton.layer.borderWidth = 1;
+    self.loginButton.layer.masksToBounds = YES;
+    
     
     _profilePictureButton.layer.cornerRadius = 75;
     _profilePictureButton.layer.masksToBounds = YES;
