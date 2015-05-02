@@ -18,5 +18,7 @@
 @property (nonatomic, strong) IBOutlet FBSDKLoginButton *loginButton;
 @property (strong, nonatomic) IBOutlet UIButton *takeMeBack;
 @property (strong, nonatomic) IBOutlet UIImageView *profilePic;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loginSpinner;
+
 
 @end

@@ -9,6 +9,7 @@
 #import "Yo2BroTableViewController.h"
 #import <AddressBookUI/AddressBookUI.h>
 #import "Yo2BroViewController.h"
+#import "Yo2BroAppDelegate.h"
 
 @import AddressBook;
 
@@ -20,7 +21,9 @@
     ABRecordRef selectedPerson;
 }
 
+@property(strong,nonatomic)UIView *spinnerView;
 @property (nonatomic,strong) NSArray *allContacts;
+@property (nonatomic,strong) NSMutableArray *filteredContacts;
 @property (strong, nonatomic) NSString *choosenEmail;
 
 @end
@@ -29,8 +32,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.allContacts = [self getAllContacts];
-    
+    self.allContacts   = [self getAllContacts];
+
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -41,9 +44,46 @@
 -(BOOL)prefersStatusBarHidden{
     return YES;
 }
+-(void)addRemoveSpinner:(BOOL)isAdd{
+    if(isAdd){
+        _spinnerView = [[[NSBundle mainBundle] loadNibNamed:@"SpinnerView" owner:self options:nil] objectAtIndex:0];
+        _spinnerView.layer.opacity = 0.5;
+        _spinnerView.frame = self.tableView.frame;
+        [self.navigationController.view addSubview:_spinnerView];
+        [self.tableView setUserInteractionEnabled:NO];
+    }else{
+        [_spinnerView removeFromSuperview];
+        [self.tableView setUserInteractionEnabled:YES];
+    }
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)showHideAllContacts:(id)sender {
+    if(((UIButton*)sender).tag == 0){
+        ((UIButton*)sender).tag = 1;
+        [((UIButton*)sender) setTitle:@"Yo 2 Bro Contacts" forState:UIControlStateNormal];
+        self.allContacts = [self getAllContacts];
+        [self.tableView reloadData];
+    }else{
+        ((UIButton*)sender).tag = 0;
+        [((UIButton*)sender) setTitle:@"All Contacts" forState:UIControlStateNormal];
+        [self addRemoveSpinner:YES];
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+            //Load your data here
+            self.allContacts   = [self getAllRegisteredUsers];
+            //Dispatch back to the main queue once your data is loaded.
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //Update your UI here, or transition to the data centric view controller. The data loaded above is available at the time this block runs
+                [self.tableView reloadData];
+                [self addRemoveSpinner:NO];
+            });
+        });
+    }
 }
 
 -(NSArray*) getAllEmails:(ABRecordRef)person{
@@ -52,12 +92,11 @@
     
     ABMultiValueRef emailsRef = ABRecordCopyValue(person, kABPersonEmailProperty);
     if(emailsRef){
-//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             NSString *email;
             
             for (int i=0; i<ABMultiValueGetCount(emailsRef); i++) {
                 NSMutableDictionary *contactDetails =[NSMutableDictionary dictionary];
-                CFStringRef currentEmailLabel = ABMultiValueCopyLabelAtIndex(emailsRef, i);
+//                CFStringRef currentEmailLabel = ABMultiValueCopyLabelAtIndex(emailsRef, i);
                 CFStringRef currentEmailValue = ABMultiValueCopyValueAtIndex(emailsRef, i);
                 
                 email = (__bridge NSString *)currentEmailValue;
@@ -67,9 +106,9 @@
             
 //                NSLog(@"Email: %@",email);
                 
-                CFRelease(currentEmailLabel);
+//                CFRelease(currentEmailLabel);
                 CFRelease(currentEmailValue);
-                
+                //check each user to see if they are a YO! user
                 PFUser *scroUser = [PFUser logInWithUsername:email password:@"password"];
                 if(scroUser){
                     NSLog(@"%@ is a user.",email);
@@ -82,11 +121,29 @@
                 [contactInfoArray addObject:contactDetails];
                 
             }
-//        }];
     }
     return  contactInfoArray;
 }
-         
+
+-(NSArray*)getAllRegisteredUsers{
+    NSArray *items = [self getAllContacts];
+    _filteredContacts = [NSMutableArray array];
+    
+    for (NSInteger i = 0; i < items.count; i++) {
+        ABRecordRef person = (__bridge ABRecordRef)items[i];
+        NSArray *emails = [self getAllEmails:person];
+        for (NSDictionary *emailDict in emails ) {
+            if([_allUsers containsObject:emailDict[CONTATCT_DETAIL_EMAIL]]){
+                NSLog(@"FILTERED EMAIL: %@",emailDict[CONTATCT_DETAIL_EMAIL]);
+                [_filteredContacts addObject:(__bridge NSArray*)person];
+            }
+        }
+    }
+    
+    
+    return _filteredContacts;
+}
+
 - (NSArray *)getAllContacts {
     
     CFErrorRef *error = nil;
@@ -178,8 +235,6 @@
     
     // Configure the cell.
     cell.textLabel.text = displayName;
-    
-//    if(![self getRegisteredEmail:person]){[cell setHidden:YES];}
     
     return cell;
 }

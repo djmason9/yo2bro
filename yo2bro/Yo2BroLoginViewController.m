@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "Yo2BroLoginViewController.h"
 #import "Yo2broSettings.h"
+#import "Yo2BroTableViewController.h"
 
 @interface Yo2BroLoginViewController ()
 {
@@ -18,26 +19,31 @@
 }
 
 @property (strong, nonatomic) IBOutlet UIImageView *profilePicWrapper;
+@property (strong, nonatomic) NSMutableArray *allUsers;
 
 @end
 
 @implementation Yo2BroLoginViewController
+
 - (IBAction)takeMeBack:(id)sender {
+    if(!_allUsers)
+        [_loginSpinner startAnimating];
+    
     [self performSegueWithIdentifier:@"showMain" sender:self];
 }
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // We wire up the FBSDKLoginButton using the interface builder
-        // but we could have also explicitly wired its delegate here.
+
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+        
+    
     self.loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
     self.profilePictureButton.profileID = @"me";
     
@@ -45,18 +51,7 @@
     _profilePictureButton.layer.masksToBounds = YES;
     _profilePictureButton.layer.borderColor = [UIColor whiteColor].CGColor;
     _profilePictureButton.layer.borderWidth  = 4;
-
-//    //gets all the users in the table to compare contacts with.
-//    PFQuery *query = [PFUser query];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        if (!error) {
-//            // The find succeeded. The first 100 objects are available in objects
-//            NSLog(@"%@", objects);
-//        } else {
-//            // Log details of the failure
-//            NSLog(@"Error: %@ %@", error, [error userInfo]);
-//        }
-//    }];   
+  
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -73,7 +68,8 @@
         settings.shouldSkipLogin = NO;
     } else {
         if (settings.shouldSkipLogin || [FBSDKAccessToken currentAccessToken]) {
-            [self performSegueWithIdentifier:@"showMain" sender:nil];
+            [_loginSpinner startAnimating];
+            [self collectAllUsers];
             [_takeMeBack setHidden:YES];
         } else {
             _viewIsVisible = YES;
@@ -142,21 +138,44 @@
                                                                  UIRemoteNotificationTypeAlert |
                                                                  UIRemoteNotificationTypeSound)];
             }
-            [self performSegueWithIdentifier:@"showMain" sender:self];
+            [self collectAllUsers];
         }
     }
 
 }
 
-
-/*
-#pragma mark - Navigation
+- (void)collectAllUsers{
+    //    //gets all the users in the table to compare contacts with.
+    PFQuery *query = [PFUser query];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        _allUsers = [NSMutableArray array];
+        if (!error) {
+            // The find succeeded. The first 100 objects are available in objects
+            NSLog(@"%@", objects);
+            for (PFUser *obj in objects){
+                [_allUsers addObject:obj[@"email"]];
+            }
+           
+            [_loginSpinner stopAnimating];
+            [self performSegueWithIdentifier:@"showMain" sender:self];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([[segue identifier] isEqualToString:@"showMain"]){
+        UINavigationController *nc = [segue destinationViewController];
+        Yo2BroTableViewController *vc = nc.viewControllers[0];
+        vc.allUsers = [_allUsers copy];
+    }
 }
-*/
+
+
 
 @end

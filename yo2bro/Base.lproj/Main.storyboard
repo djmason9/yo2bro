@@ -44,10 +44,19 @@
                                     <constraint firstAttribute="width" constant="150" id="z2l-Xa-lio"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="c73-nK-T6e">
+                                <rect key="frame" x="282" y="312" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="QEG-k1-SIg"/>
+                                    <constraint firstAttribute="height" constant="37" id="iNr-LF-pFc"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.58616879111842102" green="0.74527138157894501" blue="0.81447882401315785" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="CzL-la-FPz" secondAttribute="centerX" id="2uP-Lh-cNZ"/>
+                            <constraint firstAttribute="centerX" secondItem="c73-nK-T6e" secondAttribute="centerX" constant="-0.5" id="BDy-dL-6AQ"/>
+                            <constraint firstAttribute="centerY" secondItem="c73-nK-T6e" secondAttribute="centerY" constant="-30.5" id="FEC-Fl-ech"/>
                             <constraint firstAttribute="centerX" secondItem="JzL-Jo-yIU" secondAttribute="centerX" id="LMr-AN-wkW"/>
                             <constraint firstAttribute="centerX" secondItem="rXa-mZ-RUO" secondAttribute="centerX" constant="-0.5" id="LwP-AE-8HI"/>
                             <constraint firstAttribute="centerY" secondItem="rXa-mZ-RUO" secondAttribute="centerY" constant="-161" id="RPt-DY-Llq"/>
@@ -57,6 +66,7 @@
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="CzL-la-FPz" id="xbr-NP-EU0"/>
+                        <outlet property="loginSpinner" destination="c73-nK-T6e" id="VE9-bb-2af"/>
                         <outlet property="profilePictureButton" destination="JzL-Jo-yIU" id="k08-1I-YX2"/>
                         <outlet property="takeMeBack" destination="rXa-mZ-RUO" id="Olh-Mw-5Ch"/>
                         <segue destination="ZjE-ub-Eym" kind="presentation" identifier="showMain" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="7Yn-m9-b0Y"/>
@@ -105,7 +115,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="PZy-ub-9Jv">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="szG-ei-k60">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cmL-fl-7Lr">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cmL-fl-7Lr">
                                 <rect key="frame" x="16" y="7" width="65" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -114,6 +124,19 @@
                                 </state>
                                 <connections>
                                     <segue destination="mkC-Jo-nVW" kind="unwind" unwindAction="showLogin:" id="Wyg-Ao-06V"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="lmM-O9-uwn">
+                            <button key="customView" opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vkV-ME-jsy">
+                                <rect key="frame" x="432" y="7" width="152" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Yo 2 Bro Contacts">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showHideAllContacts:" destination="TKI-TN-TTi" eventType="touchUpInside" id="7cY-gl-pjG"/>
                                 </connections>
                             </button>
                         </barButtonItem>

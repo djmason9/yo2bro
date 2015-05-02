@@ -11,4 +11,7 @@
 
 @interface Yo2BroTableViewController : UITableViewController
 
+@property (strong, nonatomic) NSArray *allUsers;
+
+
 @end

@@ -11,6 +11,7 @@
 		BC0AC85F1AF332B7002D859E /* blank_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0AC85E1AF332B7002D859E /* blank_profile.png */; };
 		BC29E61D1AF4208D000FC1D2 /* scrohands.png in Resources */ = {isa = PBXBuildFile; fileRef = BC29E61C1AF4208D000FC1D2 /* scrohands.png */; };
 		BC29E61F1AF42BCA000FC1D2 /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC29E61E1AF42BCA000FC1D2 /* messages.plist */; };
+		BC29E6211AF46838000FC1D2 /* SpinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC29E6201AF46838000FC1D2 /* SpinnerView.xib */; };
 		BC8FC77D1AF2C5130008B27F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FC77C1AF2C5130008B27F /* main.m */; };
 		BC8FC7801AF2C5130008B27F /* Yo2BroAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FC77F1AF2C5130008B27F /* Yo2BroAppDelegate.m */; };
 		BC8FC7831AF2C5130008B27F /* Yo2BroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FC7821AF2C5130008B27F /* Yo2BroViewController.m */; };
@@ -61,6 +62,7 @@
 		BC0AC85E1AF332B7002D859E /* blank_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_profile.png; sourceTree = "<group>"; };
 		BC29E61C1AF4208D000FC1D2 /* scrohands.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scrohands.png; sourceTree = "<group>"; };
 		BC29E61E1AF42BCA000FC1D2 /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = messages.plist; sourceTree = "<group>"; };
+		BC29E6201AF46838000FC1D2 /* SpinnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpinnerView.xib; sourceTree = "<group>"; };
 		BC8FC7771AF2C5130008B27F /* yo2bro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yo2bro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8FC77B1AF2C5130008B27F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC8FC77C1AF2C5130008B27F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				BC8FC77E1AF2C5130008B27F /* Yo2BroAppDelegate.h */,
 				BC8FC77F1AF2C5130008B27F /* Yo2BroAppDelegate.m */,
 				BC8FC7841AF2C5130008B27F /* Main.storyboard */,
+				BC29E6201AF46838000FC1D2 /* SpinnerView.xib */,
 				BC8FC7871AF2C5130008B27F /* Images.xcassets */,
 				BC8FC7891AF2C5130008B27F /* LaunchScreen.xib */,
 				BC8FC77A1AF2C5130008B27F /* Supporting Files */,
@@ -358,6 +361,7 @@
 				BC29E61D1AF4208D000FC1D2 /* scrohands.png in Resources */,
 				BC8FC78B1AF2C5130008B27F /* LaunchScreen.xib in Resources */,
 				BC8FC7881AF2C5130008B27F /* Images.xcassets in Resources */,
+				BC29E6211AF46838000FC1D2 /* SpinnerView.xib in Resources */,
 				BCCADE311AF2C56B00B3AC5B /* top_handImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
