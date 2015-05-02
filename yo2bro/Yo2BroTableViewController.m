@@ -126,16 +126,19 @@
 }
 
 -(NSArray*)getAllRegisteredUsers{
-    NSArray *items = [self getAllContacts];
-    _filteredContacts = [NSMutableArray array];
     
-    for (NSInteger i = 0; i < items.count; i++) {
-        ABRecordRef person = (__bridge ABRecordRef)items[i];
-        NSArray *emails = [self getAllEmails:person];
-        for (NSDictionary *emailDict in emails ) {
-            if([_allUsers containsObject:emailDict[CONTATCT_DETAIL_EMAIL]]){
-                NSLog(@"FILTERED EMAIL: %@",emailDict[CONTATCT_DETAIL_EMAIL]);
-                [_filteredContacts addObject:(__bridge NSArray*)person];
+    if(!_filteredContacts){
+        NSArray *items = [self getAllContacts];
+        _filteredContacts = [NSMutableArray array];
+        
+        for (NSInteger i = 0; i < items.count; i++) {
+            ABRecordRef person = (__bridge ABRecordRef)items[i];
+            NSArray *emails = [self getAllEmails:person];
+            for (NSDictionary *emailDict in emails ) {
+                if([_allUsers containsObject:emailDict[CONTATCT_DETAIL_EMAIL]]){
+                    NSLog(@"FILTERED EMAIL: %@",emailDict[CONTATCT_DETAIL_EMAIL]);
+                    [_filteredContacts addObject:(__bridge NSArray*)person];
+                }
             }
         }
     }

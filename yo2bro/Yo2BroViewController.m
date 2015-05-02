@@ -29,6 +29,7 @@
 
 @property (strong, nonatomic) NSString *selectedEmail;
 @property (strong, nonatomic) NSString *selectedMessage;
+@property (strong, nonatomic) IBOutlet UILabel *yoSentLabel;
 
 @end
 
@@ -61,6 +62,8 @@
 #pragma mark - Actions
 - (IBAction)sendScro:(id)sender {
     
+    [((UIButton*)sender) setUserInteractionEnabled:NO];
+    
     if(!_selectedMessage){
         _selectedMessage = [_messageArray firstObject];
     }
@@ -81,13 +84,29 @@
                 [((UIButton*)sender) setEnabled:NO];
                 [push sendPushInBackgroundWithBlock:^(BOOL succeeded, NSError * __nullable error) {
                     [((UIButton*)sender) setEnabled:YES];
+//                    
+//                    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@""
+//                                                                     message:@"Scro Sent!"
+//                                                                    delegate:self
+//                                                           cancelButtonTitle:@"Ok"
+//                                                           otherButtonTitles: nil];
+//                    [alert show];
                     
-                    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@""
-                                                                     message:@"Scro Sent!"
-                                                                    delegate:self
-                                                           cancelButtonTitle:@"Ok"
-                                                           otherButtonTitles: nil];
-                    [alert show];
+                    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
+                                     animations:^{
+                                         _yoSentLabel.alpha = 1;
+                                         [((UIButton*)sender) setUserInteractionEnabled:YES];
+                                         
+                                         [UIView animateWithDuration:0.3 delay:0.2 options:UIViewAnimationOptionCurveEaseIn
+                                                          animations:^{
+                                                              _yoSentLabel.alpha = 0;
+                                                              [((UIButton*)sender) setUserInteractionEnabled:YES];
+                                                          } completion:nil];
+                                         
+                                         
+                                    } completion:nil];
+                    
+                    
                     
                 }];
             } else {

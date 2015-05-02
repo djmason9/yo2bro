@@ -216,6 +216,21 @@
                                     <outlet property="delegate" destination="Xwo-vf-bbP" id="4F3-Yv-jZ9"/>
                                 </connections>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="YO! Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNc-Yc-Oik">
+                                <rect key="frame" x="200" y="538" width="200" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="L6W-IK-13K"/>
+                                    <constraint firstAttribute="width" constant="81" id="e97-2u-BIN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="22"/>
+                                <color key="textColor" red="0.64787212171052633" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="0.82170024671052633" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="e97-2u-BIN"/>
+                                    </mask>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -225,13 +240,23 @@
                             <constraint firstAttribute="centerX" secondItem="zmh-cJ-gIK" secondAttribute="centerX" constant="-0.5" id="CMo-rf-arQ"/>
                             <constraint firstAttribute="centerX" secondItem="mwv-gq-n2T" secondAttribute="centerX" id="OLY-io-E50"/>
                             <constraint firstAttribute="centerX" secondItem="kl6-ao-yh0" secondAttribute="centerX" constant="-0.5" id="URH-Jq-dzV"/>
+                            <constraint firstAttribute="centerX" secondItem="nNc-Yc-Oik" secondAttribute="centerX" constant="-0.5" id="Xih-kL-LSa"/>
+                            <constraint firstAttribute="centerY" secondItem="nNc-Yc-Oik" secondAttribute="centerY" constant="-254" id="bVS-Ps-0XE"/>
                             <constraint firstAttribute="centerX" secondItem="CYo-EA-tVf" secondAttribute="centerX" constant="-0.5" id="g2X-oA-2bq"/>
+                            <constraint firstAttribute="centerY" secondItem="nNc-Yc-Oik" secondAttribute="centerY" constant="-250.5" id="gjg-kL-wRg"/>
+                            <constraint firstAttribute="centerX" secondItem="nNc-Yc-Oik" secondAttribute="centerX" id="lXF-Qc-ra0"/>
                             <constraint firstAttribute="centerY" secondItem="zmh-cJ-gIK" secondAttribute="centerY" constant="49" id="m9m-jm-KbT"/>
                             <constraint firstAttribute="centerY" secondItem="mwv-gq-n2T" secondAttribute="centerY" constant="114.5" id="oaH-dq-fUK"/>
                             <constraint firstAttribute="centerY" secondItem="CYo-EA-tVf" secondAttribute="centerY" constant="-217" id="p2w-c5-Eop"/>
                             <constraint firstAttribute="centerX" secondItem="vPQ-cM-QOa" secondAttribute="centerX" id="ygo-0f-tNx"/>
                             <constraint firstAttribute="centerY" secondItem="kl6-ao-yh0" secondAttribute="centerY" constant="-105" id="zTk-jL-x9t"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Xih-kL-LSa"/>
+                                <exclude reference="gjg-kL-wRg"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="messagePicker" destination="kl6-ao-yh0" id="KC9-lc-3A2"/>
@@ -239,6 +264,7 @@
                         <outlet property="profilePic" destination="vPQ-cM-QOa" id="o8w-Q8-SHc"/>
                         <outlet property="profileUserEmail" destination="hgC-aw-Aph" id="L0Y-nk-DVC"/>
                         <outlet property="profileUserName" destination="mwv-gq-n2T" id="Vmj-qq-4Hv"/>
+                        <outlet property="yoSentLabel" destination="nNc-Yc-Oik" id="145-Io-rHr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9t5-0z-LgO" userLabel="First Responder" sceneMemberID="firstResponder"/>
