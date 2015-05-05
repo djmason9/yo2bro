@@ -44,6 +44,7 @@
 		BCCADE4C1AF2E16500B3AC5B /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCADE4B1AF2E16500B3AC5B /* libsqlite3.0.dylib */; };
 		BCCADE4E1AF2E17200B3AC5B /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCADE4D1AF2E17200B3AC5B /* libstdc++.6.dylib */; };
 		BCCADE501AF2E17900B3AC5B /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCADE4F1AF2E17900B3AC5B /* libz.1.1.3.dylib */; };
+		BCD8000F1AF96F7C00DF7431 /* login_bg in Resources */ = {isa = PBXBuildFile; fileRef = BCD8000E1AF96F7C00DF7431 /* login_bg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		BCCADE4B1AF2E16500B3AC5B /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		BCCADE4D1AF2E17200B3AC5B /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		BCCADE4F1AF2E17900B3AC5B /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		BCD8000E1AF96F7C00DF7431 /* login_bg */ = {isa = PBXFileReference; lastKnownFileType = file; path = login_bg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +266,7 @@
 		BCCADE231AF2C56B00B3AC5B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				BCD8000E1AF96F7C00DF7431 /* login_bg */,
 				BC29E61C1AF4208D000FC1D2 /* scrohands.png */,
 				BC0AC85E1AF332B7002D859E /* blank_profile.png */,
 				BCCADE241AF2C56B00B3AC5B /* bottom_handImage.png */,
@@ -355,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC29E61F1AF42BCA000FC1D2 /* messages.plist in Resources */,
+				BCD8000F1AF96F7C00DF7431 /* login_bg in Resources */,
 				BC0AC85F1AF332B7002D859E /* blank_profile.png in Resources */,
 				BC8FC7861AF2C5130008B27F /* Main.storyboard in Resources */,
 				BCCADE301AF2C56B00B3AC5B /* bottom_handImage.png in Resources */,
