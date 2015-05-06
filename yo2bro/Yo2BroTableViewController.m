@@ -33,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.allContacts   = [self getAllContacts];
-
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
