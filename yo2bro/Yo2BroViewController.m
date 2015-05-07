@@ -179,6 +179,7 @@
                     _selectedEmail = email;
                     selectedRow = i;
                     [_inviteSendBro setTitle:@"Send Yo!" forState:UIControlStateNormal];
+                    _inviteSendBro.tag = 0;
                 }else{
                     contactDetails[CONTATCT_DETAIL_ISUSER] = @(NO);
                 }
