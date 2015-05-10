@@ -32,7 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.allContacts   = [self getAllContacts];
+    self.allContacts   = [self getAllRegisteredUsers];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -67,7 +67,16 @@
     if(((UIButton*)sender).tag == 0){
         ((UIButton*)sender).tag = 1;
         [((UIButton*)sender) setTitle:@"Yo 2 Bro Contacts" forState:UIControlStateNormal];
-        self.allContacts = [self getAllContacts];
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+            //Load your data here
+            self.allContacts   = [self getAllContacts];
+            //Dispatch back to the main queue once your data is loaded.
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //Update your UI here, or transition to the data centric view controller. The data loaded above is available at the time this block runs
+                [self.tableView reloadData];
+                [self addRemoveSpinner:NO];
+            });
+        });
         [self.tableView reloadData];
     }else{
         ((UIButton*)sender).tag = 0;
@@ -108,12 +117,12 @@
                 
 //                CFRelease(currentEmailLabel);
                 CFRelease(currentEmailValue);
-                //check each user to see if they are a YO! user
-                PFUser *scroUser = [PFUser logInWithUsername:email password:@"password"];
-                if(scroUser){
+                //check each user to see if they are a YO! user                
+                if([_allUsers containsObject:email]){
                     NSLog(@"%@ is a user.",email);
                     contactDetails[CONTATCT_DETAIL_ISUSER] = @(YES);
                     _choosenEmail = email;
+
                 }else{
                     contactDetails[CONTATCT_DETAIL_ISUSER] = @(NO);
                 }
