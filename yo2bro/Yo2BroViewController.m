@@ -63,6 +63,8 @@
 #pragma mark - Actions
 - (IBAction)sendScro:(id)sender {
     UIButton *theButton = (UIButton*)sender;
+    _yoSentLabel.alpha = 1;
+    _yoSentLabel.text = @"Sending Yo!...";
     
     if(theButton.tag == 0){
         
@@ -91,6 +93,7 @@
                     
                     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn
                                      animations:^{
+                                         _yoSentLabel.text = @"Yo Sent!";
                                          _yoSentLabel.alpha = 1;
                                          [((UIButton*)sender) setUserInteractionEnabled:YES];
                                          

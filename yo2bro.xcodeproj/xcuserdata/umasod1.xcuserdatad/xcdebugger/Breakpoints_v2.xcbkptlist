@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "yo2bro/Yo2BroViewController.m"
-            timestampString = "452727876.253478"
+            timestampString = "453337697.864285"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "-sendScro:"
             landmarkType = "5">
          </BreakpointContent>

@@ -74,7 +74,7 @@
     
     //3. animate the open
     [UIView animateWithDuration:1.0
-                          delay:0.6
+                          delay:0.3
                         options:(UIViewAnimationCurveEaseOut)
                      animations:^{
                         
