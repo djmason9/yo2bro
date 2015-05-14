@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C46F0181B010748004815D0 /* widget_scrohands.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C46F0171B010748004815D0 /* widget_scrohands.png */; };
 		9C46F01A1B010A01004815D0 /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C46F0191B010A01004815D0 /* messages.plist */; };
 		9C7E33441B001670007A31F2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C7E33431B001670007A31F2 /* NotificationCenter.framework */; };
 		9C7E334A1B001670007A31F2 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7E33491B001670007A31F2 /* TodayViewController.m */; };
@@ -18,6 +17,8 @@
 		BC29E61D1AF4208D000FC1D2 /* scrohands.png in Resources */ = {isa = PBXBuildFile; fileRef = BC29E61C1AF4208D000FC1D2 /* scrohands.png */; };
 		BC29E61F1AF42BCA000FC1D2 /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC29E61E1AF42BCA000FC1D2 /* messages.plist */; };
 		BC29E6211AF46838000FC1D2 /* SpinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC29E6201AF46838000FC1D2 /* SpinnerView.xib */; };
+		BC5FB5F51B053DA500A0CB04 /* bottom_handImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BC5FB5F31B053DA500A0CB04 /* bottom_handImage.png */; };
+		BC5FB5F61B053DA500A0CB04 /* top_handImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BC5FB5F41B053DA500A0CB04 /* top_handImage.png */; };
 		BC8FC77D1AF2C5130008B27F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FC77C1AF2C5130008B27F /* main.m */; };
 		BC8FC7801AF2C5130008B27F /* Yo2BroAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FC77F1AF2C5130008B27F /* Yo2BroAppDelegate.m */; };
 		BC8FC7831AF2C5130008B27F /* Yo2BroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FC7821AF2C5130008B27F /* Yo2BroViewController.m */; };
@@ -85,7 +86,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9C46F0171B010748004815D0 /* widget_scrohands.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = widget_scrohands.png; sourceTree = "<group>"; };
 		9C46F0191B010A01004815D0 /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = messages.plist; sourceTree = "<group>"; };
 		9C7E33421B001670007A31F2 /* yo2Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = yo2Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7E33431B001670007A31F2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -99,6 +99,8 @@
 		BC29E61C1AF4208D000FC1D2 /* scrohands.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scrohands.png; sourceTree = "<group>"; };
 		BC29E61E1AF42BCA000FC1D2 /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = messages.plist; sourceTree = "<group>"; };
 		BC29E6201AF46838000FC1D2 /* SpinnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpinnerView.xib; sourceTree = "<group>"; };
+		BC5FB5F31B053DA500A0CB04 /* bottom_handImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottom_handImage.png; sourceTree = "<group>"; };
+		BC5FB5F41B053DA500A0CB04 /* top_handImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top_handImage.png; sourceTree = "<group>"; };
 		BC8FC7771AF2C5130008B27F /* yo2bro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yo2bro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8FC77B1AF2C5130008B27F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC8FC77C1AF2C5130008B27F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -192,7 +194,8 @@
 		9C46F0161B010748004815D0 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				9C46F0171B010748004815D0 /* widget_scrohands.png */,
+				BC5FB5F31B053DA500A0CB04 /* bottom_handImage.png */,
+				BC5FB5F41B053DA500A0CB04 /* top_handImage.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -457,9 +460,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC5FB5F61B053DA500A0CB04 /* top_handImage.png in Resources */,
 				9C7E334C1B001670007A31F2 /* MainInterface.storyboard in Resources */,
-				9C46F0181B010748004815D0 /* widget_scrohands.png in Resources */,
 				9C46F01A1B010A01004815D0 /* messages.plist in Resources */,
+				BC5FB5F51B053DA500A0CB04 /* bottom_handImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

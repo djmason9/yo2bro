@@ -12,6 +12,7 @@
 @interface TodayViewController () <NCWidgetProviding>
 
 @property (strong, nonatomic) NSMutableArray *messageArray;
+@property (strong, nonatomic) IBOutlet UITextField *yoText;
 
 @end
 
@@ -20,11 +21,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.preferredContentSize = CGSizeMake(0, 150);
+    self.preferredContentSize = CGSizeMake(0, 65);
     NSString *path = [[NSBundle mainBundle] pathForResource: @"messages" ofType:@"plist"];
     
     // Build the array from the messages plist
     _messageArray = [[NSMutableArray alloc] initWithContentsOfFile:path];
+}
+- (IBAction)sendYo:(id)sender {
+    NSLog(@"SENDING!");
+    NSExtensionContext *myExtension=[self extensionContext];
+    [myExtension openURL:[NSURL URLWithString:@"com.bitcows.yo2bro.URL://"] completionHandler:nil];
 }
 
 - (void)didReceiveMemoryWarning {
