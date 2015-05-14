@@ -16,6 +16,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_handImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="6kV-rH-3Ek">
+                                <rect key="frame" x="154" y="110" width="229" height="171"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="229" id="8zc-pl-C3g"/>
+                                    <constraint firstAttribute="height" constant="171" id="wXy-rU-0To"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottom_handImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="ym0-jS-JjZ">
+                                <rect key="frame" x="218" y="308" width="229" height="171"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="171" id="Fsl-9q-XUl"/>
+                                    <constraint firstAttribute="width" constant="229" id="s48-cU-u9m"/>
+                                </constraints>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="login_bg" translatesAutoresizingMaskIntoConstraints="NO" id="1zK-Aw-BHY">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
@@ -84,30 +98,43 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="CzL-la-FPz" secondAttribute="centerX" id="2uP-Lh-cNZ"/>
+                            <constraint firstAttribute="centerY" secondItem="6kV-rH-3Ek" secondAttribute="centerY" constant="84.5" id="4bK-dZ-7tg"/>
                             <constraint firstAttribute="centerX" secondItem="1zK-Aw-BHY" secondAttribute="centerX" id="FTd-lL-z0L"/>
                             <constraint firstAttribute="centerX" secondItem="cZE-0Q-OdC" secondAttribute="centerX" constant="73.5" id="G7I-eC-LoD"/>
                             <constraint firstAttribute="centerX" secondItem="rXa-mZ-RUO" secondAttribute="centerX" constant="0.5" id="HY2-pB-E7f"/>
                             <constraint firstAttribute="centerX" secondItem="JzL-Jo-yIU" secondAttribute="centerX" id="LMr-AN-wkW"/>
+                            <constraint firstAttribute="centerY" secondItem="6kV-rH-3Ek" secondAttribute="centerY" constant="104.5" id="Mfx-Fq-LcC"/>
                             <constraint firstAttribute="centerX" secondItem="5tQ-Hk-yYE" secondAttribute="centerX" id="OUh-Fu-hvR"/>
                             <constraint firstAttribute="centerX" secondItem="rWS-iT-dfU" secondAttribute="centerX" constant="-72.5" id="PCM-Oe-l0F"/>
                             <constraint firstAttribute="centerY" secondItem="TgQ-1d-ItV" secondAttribute="centerY" constant="-20.5" id="R1Z-XE-HHd"/>
                             <constraint firstAttribute="centerX" secondItem="TgQ-1d-ItV" secondAttribute="centerX" id="SSJ-h7-ros"/>
+                            <constraint firstAttribute="centerY" secondItem="ym0-jS-JjZ" secondAttribute="centerY" constant="-93.5" id="W78-Pg-Wf5"/>
                             <constraint firstAttribute="centerY" secondItem="cZE-0Q-OdC" secondAttribute="centerY" constant="-151.5" id="YHi-9k-NKp"/>
                             <constraint firstAttribute="centerX" secondItem="c73-nK-T6e" secondAttribute="centerX" constant="-0.5" id="bBl-kl-3W6"/>
                             <constraint firstAttribute="centerY" secondItem="JzL-Jo-yIU" secondAttribute="centerY" constant="132" id="bvl-qx-S9g"/>
                             <constraint firstAttribute="centerY" secondItem="rWS-iT-dfU" secondAttribute="centerY" constant="-151.5" id="dzp-Q6-8mM"/>
                             <constraint firstAttribute="centerY" secondItem="CzL-la-FPz" secondAttribute="centerY" constant="-108.5" id="eJX-Cq-4Du"/>
+                            <constraint firstAttribute="centerX" secondItem="6kV-rH-3Ek" secondAttribute="centerX" constant="31.5" id="gHo-Sj-VcF"/>
+                            <constraint firstAttribute="centerX" secondItem="ym0-jS-JjZ" secondAttribute="centerX" constant="-32.5" id="nz8-nw-cNL"/>
                             <constraint firstAttribute="centerY" secondItem="1zK-Aw-BHY" secondAttribute="centerY" id="rbf-Wh-S8a"/>
                             <constraint firstAttribute="centerY" secondItem="5tQ-Hk-yYE" secondAttribute="centerY" constant="-150.5" id="rz0-ea-d8N"/>
                             <constraint firstAttribute="centerY" secondItem="rXa-mZ-RUO" secondAttribute="centerY" constant="-180" id="vJk-Bv-0E4"/>
                             <constraint firstAttribute="centerY" secondItem="c73-nK-T6e" secondAttribute="centerY" constant="-225.5" id="wGJ-M7-Hux"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4bK-dZ-7tg"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="loginButton" destination="CzL-la-FPz" id="xbr-NP-EU0"/>
                         <outlet property="loginSpinner" destination="c73-nK-T6e" id="VE9-bb-2af"/>
+                        <outlet property="mainBg" destination="1zK-Aw-BHY" id="Rks-e3-cCQ"/>
                         <outlet property="profilePictureButton" destination="JzL-Jo-yIU" id="k08-1I-YX2"/>
+                        <outlet property="splashImage1" destination="6kV-rH-3Ek" id="cTZ-VY-TTl"/>
+                        <outlet property="splashImage2" destination="ym0-jS-JjZ" id="C1E-9E-Deo"/>
                         <outlet property="takeMeBack" destination="rXa-mZ-RUO" id="Olh-Mw-5Ch"/>
                         <segue destination="ZjE-ub-Eym" kind="presentation" identifier="showMain" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="7Yn-m9-b0Y"/>
                     </connections>
@@ -324,7 +351,9 @@
     </scenes>
     <resources>
         <image name="blank_profile.png" width="700" height="700"/>
+        <image name="bottom_handImage.png" width="1325" height="899"/>
         <image name="login_bg" width="414" height="736"/>
         <image name="scrohands.png" width="150" height="150"/>
+        <image name="top_handImage.png" width="1420" height="877"/>
     </resources>
 </document>

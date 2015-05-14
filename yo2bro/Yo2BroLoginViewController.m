@@ -16,10 +16,14 @@
 {
     BOOL _viewDidAppear;
     BOOL _viewIsVisible;
+    BOOL _animationRan;
 }
 
 @property (strong, nonatomic) IBOutlet UIImageView *profilePicWrapper;
 @property (strong, nonatomic) NSMutableArray *allUsers;
+@property (strong, nonatomic) IBOutlet UIImageView *mainBg;
+@property (strong, nonatomic) IBOutlet UIImageView *splashImage1;
+@property (strong, nonatomic) IBOutlet UIImageView *splashImage2;
 
 @end
 
@@ -42,7 +46,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        
+    
+    _animationRan = NO;
     
     self.loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
     self.profilePictureButton.profileID = @"me";
@@ -50,6 +55,9 @@
     self.loginButton.layer.borderWidth = 1;
     self.loginButton.layer.masksToBounds = YES;
     
+    [self.view bringSubviewToFront:self.mainBg];
+    [self.view bringSubviewToFront:self.splashImage1];
+    [self.view bringSubviewToFront:self.splashImage2];
     
     _profilePictureButton.layer.cornerRadius = 75;
     _profilePictureButton.layer.masksToBounds = YES;
@@ -62,7 +70,44 @@
 {
     [super viewDidAppear:animated];
     
-     self.profilePictureButton.pictureCropping = FBSDKProfilePictureModeSquare;
+    if(!_animationRan){
+    
+    //3. animate the open
+    [UIView animateWithDuration:1.0
+                          delay:0.6
+                        options:(UIViewAnimationCurveEaseOut)
+                     animations:^{
+                        
+                        self.splashImage1.frame = CGRectMake(self.splashImage1.frame.origin.x, self.splashImage1.frame.origin.y+20, 229, 171);
+                        self.splashImage2.frame = CGRectMake(self.splashImage2.frame.origin.x, self.splashImage2.frame.origin.y-20, 229, 171);
+                         
+                     } completion:^(BOOL finished){
+                         
+                         [UIView animateWithDuration:0.5
+                                               delay:0.0
+                                             options:(UIViewAnimationCurveEaseOut)
+                                          animations:^{
+                                              self.splashImage2.alpha = 0;
+                                              self.splashImage1.alpha = 0;
+                                             
+                                              } completion:^(BOOL finished){
+                                                  _animationRan= YES;
+                                                     //remove that imageview from the view
+                                                     [self.splashImage1 setHidden:YES];
+                                                     [self.splashImage2 setHidden:YES];
+                                                     [self.view sendSubviewToBack:self.mainBg];
+                                                   [self finalizeLoad];
+                                              }];
+    
+    
+                     }];
+    }else{
+        [self finalizeLoad];
+    }
+}
+
+-(void)finalizeLoad{
+    self.profilePictureButton.pictureCropping = FBSDKProfilePictureModeSquare;
     
     Yo2broSettings *settings = [Yo2broSettings defaultSettings];
     if (_viewDidAppear) {

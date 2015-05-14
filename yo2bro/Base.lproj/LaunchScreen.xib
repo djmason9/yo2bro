@@ -7,18 +7,21 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="login_bg" translatesAutoresizingMaskIntoConstraints="NO" id="hG0-fj-r3m">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_handImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="5w2-Ym-uX2">
-                    <rect key="frame" x="99" y="74" width="229" height="171"/>
+                    <rect key="frame" x="154" y="110" width="229" height="171"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="229" id="S5x-bj-FfH"/>
                         <constraint firstAttribute="height" constant="171" id="pSP-2w-OLm"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottom_handImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="obh-Bu-Irs">
-                    <rect key="frame" x="163" y="232" width="229" height="171"/>
+                    <rect key="frame" x="218" y="308" width="229" height="171"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="171" id="aca-TO-BEC"/>
                         <constraint firstAttribute="width" constant="229" id="xsl-ng-N4f"/>
@@ -27,18 +30,41 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="centerY" secondItem="5w2-Ym-uX2" secondAttribute="centerY" constant="84.5" id="1zA-2E-YRf"/>
+                <constraint firstAttribute="centerY" secondItem="5w2-Ym-uX2" secondAttribute="centerY" constant="104.5" id="4zQ-sH-DWU"/>
                 <constraint firstAttribute="centerY" secondItem="5w2-Ym-uX2" secondAttribute="centerY" constant="80.5" id="5RM-8u-S4d"/>
                 <constraint firstAttribute="centerX" secondItem="obh-Bu-Irs" secondAttribute="centerX" constant="-37.5" id="Llu-te-wqp"/>
                 <constraint firstAttribute="centerX" secondItem="5w2-Ym-uX2" secondAttribute="centerX" constant="26.5" id="QzN-Ue-G1S"/>
+                <constraint firstAttribute="centerY" secondItem="obh-Bu-Irs" secondAttribute="centerY" constant="-73.5" id="WLc-aC-nTv"/>
                 <constraint firstAttribute="centerY" secondItem="obh-Bu-Irs" secondAttribute="centerY" constant="-77.5" id="Wn1-Fe-w5s"/>
+                <constraint firstAttribute="centerX" secondItem="hG0-fj-r3m" secondAttribute="centerX" id="cS2-Oh-QUj"/>
+                <constraint firstAttribute="centerY" secondItem="obh-Bu-Irs" secondAttribute="centerY" constant="-93.5" id="drU-P5-vwh"/>
+                <constraint firstAttribute="centerY" secondItem="hG0-fj-r3m" secondAttribute="centerY" constant="-3" id="foY-gm-g06"/>
+                <constraint firstAttribute="centerX" secondItem="obh-Bu-Irs" secondAttribute="centerX" constant="-32.5" id="jaE-C3-6Cv"/>
+                <constraint firstAttribute="centerX" secondItem="5w2-Ym-uX2" secondAttribute="centerX" constant="31.5" id="mpv-Yr-qy4"/>
+                <constraint firstAttribute="centerX" secondItem="hG0-fj-r3m" secondAttribute="centerX" id="uti-lF-vw7"/>
+                <constraint firstAttribute="centerY" secondItem="hG0-fj-r3m" secondAttribute="centerY" id="wpz-IQ-WJU"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="foY-gm-g06"/>
+                    <exclude reference="uti-lF-vw7"/>
+                    <exclude reference="1zA-2E-YRf"/>
+                    <exclude reference="5RM-8u-S4d"/>
+                    <exclude reference="QzN-Ue-G1S"/>
+                    <exclude reference="Llu-te-wqp"/>
+                    <exclude reference="WLc-aC-nTv"/>
+                    <exclude reference="Wn1-Fe-w5s"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
     <resources>
         <image name="bottom_handImage.png" width="1325" height="899"/>
+        <image name="login_bg" width="414" height="736"/>
         <image name="top_handImage.png" width="1420" height="877"/>
     </resources>
 </document>

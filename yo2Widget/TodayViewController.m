@@ -28,9 +28,8 @@
     _messageArray = [[NSMutableArray alloc] initWithContentsOfFile:path];
 }
 - (IBAction)sendYo:(id)sender {
-    NSLog(@"SENDING!");
     NSExtensionContext *myExtension=[self extensionContext];
-    [myExtension openURL:[NSURL URLWithString:@"com.bitcows.yo2bro.URL://"] completionHandler:nil];
+    [myExtension openURL:[NSURL URLWithString:@"com.bitcows.yo2bro.URL://sendYO"] completionHandler:nil];
 }
 
 - (void)didReceiveMemoryWarning {
