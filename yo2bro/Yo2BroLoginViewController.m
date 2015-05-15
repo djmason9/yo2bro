@@ -24,6 +24,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *mainBg;
 @property (strong, nonatomic) IBOutlet UIImageView *splashImage1;
 @property (strong, nonatomic) IBOutlet UIImageView *splashImage2;
+@property (strong, nonatomic) IBOutlet UIView *orView;
 
 @end
 
@@ -113,6 +114,7 @@
     if (_viewDidAppear) {
         _viewIsVisible = YES;
         [_takeMeBack setHidden:NO];
+        [_orView setHidden:NO];
         // reset
         settings.shouldSkipLogin = NO;
     } else {
@@ -120,6 +122,7 @@
             [_loginSpinner startAnimating];
             [self collectAllUsers];
             [_takeMeBack setHidden:YES];
+            [_orView setHidden:YES];
         } else {
             _viewIsVisible = YES;
         }
