@@ -63,11 +63,10 @@
 #pragma mark - Actions
 - (IBAction)sendScro:(id)sender {
     UIButton *theButton = (UIButton*)sender;
-    _yoSentLabel.alpha = 1;
-    _yoSentLabel.text = @"Sending Yo!...";
-    
+   
     if(theButton.tag == 0){
-        
+         _yoSentLabel.text = @"Sending Yo!...";
+         _yoSentLabel.alpha = 1;
         [theButton setUserInteractionEnabled:NO];
     
         if(!_selectedMessage){
@@ -145,9 +144,15 @@
     _contactInfoArray = [NSMutableArray array];
     
     NSString* f_name = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+    if(!f_name)
+        f_name = @"";
+    
     NSLog(@"NAME: %@",f_name);
     
     NSString* l_name = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonLastNameProperty);
+    if(!l_name)
+        l_name = @"";
+    
     NSLog(@"NAME: %@",l_name);
     
     
@@ -158,7 +163,7 @@
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             NSString *email;
             int selectedRow=0;
-            
+            //multiple emails
             for (int i=0; i<ABMultiValueGetCount(emailsRef); i++) {
                 NSMutableDictionary *contactDetails =[NSMutableDictionary dictionary];
                 CFStringRef currentEmailLabel = ABMultiValueCopyLabelAtIndex(emailsRef, i);
@@ -182,6 +187,7 @@
                     _selectedEmail = email;
                     selectedRow = i;
                     [_inviteSendBro setTitle:@"Send Yo!" forState:UIControlStateNormal];
+                    [_messagePicker setHidden:NO];
                     _inviteSendBro.tag = 0;
                 }else{
                     contactDetails[CONTATCT_DETAIL_ISUSER] = @(NO);
@@ -197,7 +203,7 @@
                 [_profileEmailPicker reloadComponent:0];
                 [_profileEmailPicker selectRow:selectedRow inComponent:0 animated:YES];
                 
-            }else{
+            }else{// single email
                 [_profileEmailPicker setHidden: YES];
                 [_profileUserEmail setHidden:NO];
                 _selectedEmail = email;
@@ -293,10 +299,12 @@
         
         if([_contactInfoArray[row][CONTATCT_DETAIL_ISUSER] integerValue]){
             [_inviteSendBro setTitle:@"Send Yo!" forState:UIControlStateNormal];
+            [_messagePicker setHidden:NO];
             _inviteSendBro.tag = 0;
         }
         else{
             [_inviteSendBro setTitle:@"Invite Bro" forState:UIControlStateNormal];
+            [_messagePicker setHidden:YES];
             _inviteSendBro.tag = 1;
         }
         

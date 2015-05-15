@@ -52,13 +52,6 @@
                                     <constraint firstAttribute="width" constant="150" id="z2l-Xa-lio"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scrohands.png" translatesAutoresizingMaskIntoConstraints="NO" id="TgQ-1d-ItV">
-                                <rect key="frame" x="250" y="276" width="100" height="89"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="89" id="LBD-mP-3lj"/>
-                                    <constraint firstAttribute="width" constant="100" id="WcF-BI-ggT"/>
-                                </constraints>
-                            </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="c73-nK-T6e">
                                 <rect key="frame" x="282" y="507" width="37" height="37"/>
                                 <constraints>
@@ -134,8 +127,6 @@
                             <constraint firstAttribute="centerY" secondItem="Tud-Yc-FVE" secondAttribute="centerY" constant="-150" id="IY4-tg-Ipu"/>
                             <constraint firstAttribute="centerX" secondItem="JzL-Jo-yIU" secondAttribute="centerX" id="LMr-AN-wkW"/>
                             <constraint firstAttribute="centerY" secondItem="6kV-rH-3Ek" secondAttribute="centerY" constant="104.5" id="Mfx-Fq-LcC"/>
-                            <constraint firstAttribute="centerY" secondItem="TgQ-1d-ItV" secondAttribute="centerY" constant="-20.5" id="R1Z-XE-HHd"/>
-                            <constraint firstAttribute="centerX" secondItem="TgQ-1d-ItV" secondAttribute="centerX" id="SSJ-h7-ros"/>
                             <constraint firstAttribute="centerY" secondItem="ym0-jS-JjZ" secondAttribute="centerY" constant="-93.5" id="W78-Pg-Wf5"/>
                             <constraint firstAttribute="centerX" secondItem="Tud-Yc-FVE" secondAttribute="centerX" constant="0.5" id="Z2d-A9-3Ke"/>
                             <constraint firstAttribute="centerX" secondItem="c73-nK-T6e" secondAttribute="centerX" constant="-0.5" id="bBl-kl-3W6"/>
@@ -306,7 +297,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kl6-ao-yh0">
+                            <pickerView hidden="YES" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kl6-ao-yh0">
                                 <rect key="frame" x="176" y="324" width="249" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="X7H-1z-asD"/>
@@ -380,7 +371,6 @@
         <image name="blank_profile.png" width="700" height="700"/>
         <image name="bottom_handImage.png" width="1325" height="899"/>
         <image name="login_bg" width="414" height="736"/>
-        <image name="scrohands.png" width="150" height="150"/>
         <image name="top_handImage.png" width="1420" height="877"/>
     </resources>
 </document>
