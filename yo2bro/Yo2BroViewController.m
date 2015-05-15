@@ -94,13 +94,12 @@
                                      animations:^{
                                          _yoSentLabel.text = @"Yo Sent!";
                                          _yoSentLabel.alpha = 1;
-                                         [((UIButton*)sender) setUserInteractionEnabled:YES];
-                                         
-                                         [UIView animateWithDuration:0.3 delay:0.2 options:UIViewAnimationOptionCurveEaseIn
+                                         [UIView animateWithDuration:0.4 delay:0.3 options:UIViewAnimationOptionCurveEaseIn
                                                           animations:^{
                                                               _yoSentLabel.alpha = 0;
-                                                              [((UIButton*)sender) setUserInteractionEnabled:YES];
-                                                          } completion:nil];
+                                                          } completion:^(BOOL finished) {
+                                                              [theButton setUserInteractionEnabled:YES];
+                                                          }];
                                          
                                          
                                     } completion:nil];
