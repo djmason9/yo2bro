@@ -67,42 +67,51 @@
   
 }
 
+-(void)animateFists{
+
+    //3. animate the open
+    [UIView animateWithDuration:0.2
+                          delay:0.3
+                        options:(UIViewAnimationOptionCurveEaseIn)
+                     animations:^{
+                         
+                         self.splashImage1.frame = CGRectMake(self.splashImage1.frame.origin.x, self.splashImage1.frame.origin.y+20, 229, 171);
+                         self.splashImage2.frame = CGRectMake(self.splashImage2.frame.origin.x, self.splashImage2.frame.origin.y-20, 229, 171);
+                         
+                     } completion:^(BOOL finished){
+                         
+                         [UIView animateWithDuration:0.2
+                                               delay:0.0
+                                             options:(UIViewAnimationOptionCurveEaseIn)
+                                          animations:^{
+                                              self.splashImage1.frame = CGRectMake(self.splashImage1.frame.origin.x, self.splashImage1.frame.origin.y-20, 229, 171);
+                                              self.splashImage2.frame = CGRectMake(self.splashImage2.frame.origin.x, self.splashImage2.frame.origin.y+20, 229, 171);
+                                              
+                                              self.splashImage2.alpha = 0;
+                                              self.splashImage1.alpha = 0;
+                                              
+                                          } completion:^(BOOL finished){
+                                              _animationRan= YES;
+                                              //remove that imageview from the view
+                                              [self.splashImage1 setHidden:YES];
+                                              [self.splashImage2 setHidden:YES];
+                                              [self.view sendSubviewToBack:self.mainBg];
+                                              [self finalizeLoad];
+                                          }];
+                         
+                         
+                     }];
+
+
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
     if(!_animationRan){
-    
-    //3. animate the open
-    [UIView animateWithDuration:1.0
-                          delay:0.3
-                        options:(UIViewAnimationCurveEaseOut)
-                     animations:^{
-                        
-                        self.splashImage1.frame = CGRectMake(self.splashImage1.frame.origin.x, self.splashImage1.frame.origin.y+20, 229, 171);
-                        self.splashImage2.frame = CGRectMake(self.splashImage2.frame.origin.x, self.splashImage2.frame.origin.y-20, 229, 171);
-                         
-                     } completion:^(BOOL finished){
-                         
-                         [UIView animateWithDuration:0.5
-                                               delay:0.0
-                                             options:(UIViewAnimationCurveEaseOut)
-                                          animations:^{
-                                              self.splashImage2.alpha = 0;
-                                              self.splashImage1.alpha = 0;
-                                             
-                                              } completion:^(BOOL finished){
-                                                  _animationRan= YES;
-                                                     //remove that imageview from the view
-                                                     [self.splashImage1 setHidden:YES];
-                                                     [self.splashImage2 setHidden:YES];
-                                                     [self.view sendSubviewToBack:self.mainBg];
-                                                   [self finalizeLoad];
-                                              }];
-    
-    
-                     }];
-    }else{
+        [self animateFists];
+       }else{
         [self finalizeLoad];
     }
 }
