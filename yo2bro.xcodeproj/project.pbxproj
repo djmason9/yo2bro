@@ -7,18 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C46F01A1B010A01004815D0 /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C46F0191B010A01004815D0 /* messages.plist */; };
-		9C7E33441B001670007A31F2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C7E33431B001670007A31F2 /* NotificationCenter.framework */; };
-		9C7E334A1B001670007A31F2 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7E33491B001670007A31F2 /* TodayViewController.m */; };
-		9C7E334C1B001670007A31F2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C7E334B1B001670007A31F2 /* MainInterface.storyboard */; };
-		9C7E334F1B001670007A31F2 /* yo2Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9C7E33421B001670007A31F2 /* yo2Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BC0AC85D1AF2FD2F002D859E /* Yo2BroTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0AC85C1AF2FD2F002D859E /* Yo2BroTableViewController.m */; };
 		BC0AC85F1AF332B7002D859E /* blank_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0AC85E1AF332B7002D859E /* blank_profile.png */; };
 		BC29E61D1AF4208D000FC1D2 /* scrohands.png in Resources */ = {isa = PBXBuildFile; fileRef = BC29E61C1AF4208D000FC1D2 /* scrohands.png */; };
 		BC29E61F1AF42BCA000FC1D2 /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC29E61E1AF42BCA000FC1D2 /* messages.plist */; };
 		BC29E6211AF46838000FC1D2 /* SpinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC29E6201AF46838000FC1D2 /* SpinnerView.xib */; };
-		BC5FB5F51B053DA500A0CB04 /* bottom_handImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BC5FB5F31B053DA500A0CB04 /* bottom_handImage.png */; };
-		BC5FB5F61B053DA500A0CB04 /* top_handImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BC5FB5F41B053DA500A0CB04 /* top_handImage.png */; };
 		BC8FC77D1AF2C5130008B27F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FC77C1AF2C5130008B27F /* main.m */; };
 		BC8FC7801AF2C5130008B27F /* Yo2BroAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FC77F1AF2C5130008B27F /* Yo2BroAppDelegate.m */; };
 		BC8FC7831AF2C5130008B27F /* Yo2BroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FC7821AF2C5130008B27F /* Yo2BroViewController.m */; };
@@ -55,13 +48,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9C7E334D1B001670007A31F2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BC8FC76F1AF2C5130008B27F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9C7E33411B001670007A31F2;
-			remoteInfo = yo2Widget;
-		};
 		BC8FC7911AF2C5130008B27F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BC8FC76F1AF2C5130008B27F /* Project object */;
@@ -78,7 +64,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				9C7E334F1B001670007A31F2 /* yo2Widget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,7 +72,6 @@
 
 /* Begin PBXFileReference section */
 		9C46F0191B010A01004815D0 /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = messages.plist; sourceTree = "<group>"; };
-		9C7E33421B001670007A31F2 /* yo2Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = yo2Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7E33431B001670007A31F2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		9C7E33471B001670007A31F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C7E33481B001670007A31F2 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
@@ -148,14 +132,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9C7E333F1B001670007A31F2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9C7E33441B001670007A31F2 /* NotificationCenter.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BC8FC7741AF2C5130008B27F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -266,7 +242,6 @@
 			children = (
 				BC8FC7771AF2C5130008B27F /* yo2bro.app */,
 				BC8FC7901AF2C5130008B27F /* yo2broTests.xctest */,
-				9C7E33421B001670007A31F2 /* yo2Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -357,23 +332,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9C7E33411B001670007A31F2 /* yo2Widget */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9C7E33521B001671007A31F2 /* Build configuration list for PBXNativeTarget "yo2Widget" */;
-			buildPhases = (
-				9C7E333E1B001670007A31F2 /* Sources */,
-				9C7E333F1B001670007A31F2 /* Frameworks */,
-				9C7E33401B001670007A31F2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = yo2Widget;
-			productName = yo2Widget;
-			productReference = 9C7E33421B001670007A31F2 /* yo2Widget.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		BC8FC7761AF2C5130008B27F /* yo2bro */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC8FC79A1AF2C5130008B27F /* Build configuration list for PBXNativeTarget "yo2bro" */;
@@ -386,7 +344,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				9C7E334E1B001670007A31F2 /* PBXTargetDependency */,
 			);
 			name = yo2bro;
 			productName = yo2bro;
@@ -420,10 +377,6 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Mason, Darren J";
 				TargetAttributes = {
-					9C7E33411B001670007A31F2 = {
-						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = GH7T9R2FN6;
-					};
 					BC8FC7761AF2C5130008B27F = {
 						CreatedOnToolsVersion = 6.3;
 						DevelopmentTeam = GH7T9R2FN6;
@@ -450,23 +403,11 @@
 			targets = (
 				BC8FC7761AF2C5130008B27F /* yo2bro */,
 				BC8FC78F1AF2C5130008B27F /* yo2broTests */,
-				9C7E33411B001670007A31F2 /* yo2Widget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9C7E33401B001670007A31F2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BC5FB5F61B053DA500A0CB04 /* top_handImage.png in Resources */,
-				9C7E334C1B001670007A31F2 /* MainInterface.storyboard in Resources */,
-				9C46F01A1B010A01004815D0 /* messages.plist in Resources */,
-				BC5FB5F51B053DA500A0CB04 /* bottom_handImage.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BC8FC7751AF2C5130008B27F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -494,14 +435,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9C7E333E1B001670007A31F2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9C7E334A1B001670007A31F2 /* TodayViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BC8FC7731AF2C5130008B27F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -529,11 +462,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9C7E334E1B001670007A31F2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9C7E33411B001670007A31F2 /* yo2Widget */;
-			targetProxy = 9C7E334D1B001670007A31F2 /* PBXContainerItemProxy */;
-		};
 		BC8FC7921AF2C5130008B27F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BC8FC7761AF2C5130008B27F /* yo2bro */;
@@ -561,40 +489,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		9C7E33501B001671007A31F2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = yo2Widget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		9C7E33511B001671007A31F2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = yo2Widget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		BC8FC7981AF2C5130008B27F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -681,8 +575,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/yo2bro/Frameworks",
@@ -690,7 +584,7 @@
 				INFOPLIST_FILE = yo2bro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = yo2bro;
-				PROVISIONING_PROFILE = "6effe802-16cc-4caa-83ce-cb5ef47bc1ac";
+				PROVISIONING_PROFILE = "a47f7f9e-dd3a-437d-ab55-aefd96ac255a";
 			};
 			name = Debug;
 		};
@@ -698,8 +592,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/yo2bro/Frameworks",
@@ -707,7 +601,7 @@
 				INFOPLIST_FILE = yo2bro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = yo2bro;
-				PROVISIONING_PROFILE = "6effe802-16cc-4caa-83ce-cb5ef47bc1ac";
+				PROVISIONING_PROFILE = "a47f7f9e-dd3a-437d-ab55-aefd96ac255a";
 			};
 			name = Release;
 		};
@@ -754,15 +648,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9C7E33521B001671007A31F2 /* Build configuration list for PBXNativeTarget "yo2Widget" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9C7E33501B001671007A31F2 /* Debug */,
-				9C7E33511B001671007A31F2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		BC8FC7721AF2C5130008B27F /* Build configuration list for PBXProject "yo2bro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

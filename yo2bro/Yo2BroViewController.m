@@ -73,6 +73,11 @@
             _selectedMessage = [_messageArray firstObject];
         }
         
+        
+        
+        //add user name
+        _selectedMessage = [[FBSDKProfile currentProfile].firstName stringByAppendingString: [NSString stringWithFormat:@" said:\n%@", _selectedMessage ]];
+        
         int row = (int)[_profileEmailPicker selectedRowInComponent:0];
         //
         if(_selectedEmail && [_contactInfoArray[row][CONTATCT_DETAIL_ISUSER] integerValue]){

@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>YO! Have a safe trip bro!</string>
+	<string>YO! I&apos;m on my way bro!</string>
+	<string>YO! bro whats the happs?</string>
 	<string>YO?</string>
+	<string>YO? you got beef bro?</string>
 	<string>YO!</string>
 	<string>YO Asshole!</string>
 	<string>YO Baby!</string>
@@ -14,5 +16,6 @@
 	<string>YO what the F@ck bro!</string>
 	<string>YO bro!</string>
 	<string>YO where the bitches at bro?!</string>
+	<string>YO! we doin&apos; this or what bro?</string>
 </array>
 </plist>
